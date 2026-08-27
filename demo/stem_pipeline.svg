@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="250" viewBox="0 0 980 250" role="img" aria-labelledby="title desc">
+  <title id="title">paper-harness STEM modular visual workflow</title>
+  <desc id="desc">A research visual is decomposed into background, subject and annotation before a human review gate.</desc>
+  <style>
+    text { font-family: Arial, sans-serif; fill: #17202b; }
+    .small { fill: #5d6978; }
+    .arrow { stroke: #8793a1; stroke-width: 2; marker-end: url(#arrow); }
+  </style>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 z" fill="#8793a1"/></marker>
+  </defs>
+  <rect width="980" height="250" rx="14" fill="#f6f8fb"/>
+  <text x="34" y="38" font-size="23" font-weight="bold">STEM modular visual workflow</text>
+  <text x="34" y="63" class="small" font-size="13">Plan assets independently, compose explicitly, then review claims and provenance.</text>
+  <g fill="#fff" stroke-width="2">
+    <rect x="40" y="92" width="200" height="92" rx="10" stroke="#2f6fed"/>
+    <rect x="268" y="92" width="200" height="92" rx="10" stroke="#167c68"/>
+    <rect x="496" y="92" width="200" height="92" rx="10" stroke="#c46a22"/>
+    <rect x="724" y="92" width="200" height="92" rx="10" stroke="#7148a6"/>
+  </g>
+  <g>
+    <circle cx="62" cy="117" r="9" fill="#2f6fed"/><text x="80" y="123" font-size="17" font-weight="bold">Background</text>
+    <text x="58" y="152" class="small" font-size="12">context and coordinate frame</text>
+    <circle cx="290" cy="117" r="9" fill="#167c68"/><text x="308" y="123" font-size="17" font-weight="bold">Subject</text>
+    <text x="286" y="152" class="small" font-size="12">main object or phenomenon</text>
+    <circle cx="518" cy="117" r="9" fill="#c46a22"/><text x="536" y="123" font-size="17" font-weight="bold">Annotation</text>
+    <text x="514" y="152" class="small" font-size="12">labels, arrows or units</text>
+    <circle cx="746" cy="117" r="9" fill="#7148a6"/><text x="764" y="123" font-size="17" font-weight="bold">Composition</text>
+    <text x="742" y="152" class="small" font-size="12">scale and claim alignment</text>
+  </g>
+  <path class="arrow" d="M240 138 H260"/><path class="arrow" d="M468 138 H488"/><path class="arrow" d="M696 138 H716"/>
+  <rect x="775" y="205" width="165" height="28" rx="14" fill="#17202b"/>
+  <text x="795" y="224" font-size="12" style="fill:#fff">HUMAN REVIEW REQUIRED</text>
+</svg>

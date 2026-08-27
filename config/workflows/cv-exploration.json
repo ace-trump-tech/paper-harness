@@ -1,0 +1,7 @@
+{
+  "name": "cv-exploration",
+  "audience": "computer-vision researcher",
+  "focus": ["local-knowledge-base", "A+B+C-combinations", "one-gpu-one-subagent", "metric-driven-iteration"],
+  "human_approval_before": ["adversarial_review", "experiment", "evidence_review", "draft", "final_review"],
+  "gpu_runtime": "external-runner-required"
+}

@@ -1,0 +1,7 @@
+{
+  "literature": ["arxiv", "openalex", "crossref"],
+  "optional_literature": ["google-scholar", "cnki"],
+  "template": ["venue-official"],
+  "formatting": ["local-latex", "overleaf-git"]
+}
+

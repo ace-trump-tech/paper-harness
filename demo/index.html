@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>paper-harness demo</title>
+  <style>
+    :root { color-scheme: light; --ink:#18212b; --muted:#667382; --line:#d8e0e8; --blue:#2864c7; --green:#147a61; --orange:#b86b19; --bg:#f7f9fb; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { max-width:1080px; margin:0 auto; padding:42px 22px 64px; }
+    header { display:flex; justify-content:space-between; gap:24px; align-items:end; border-bottom:1px solid var(--line); padding-bottom:24px; }
+    h1 { margin:0 0 6px; font-size:32px; letter-spacing:0; }
+    h2 { margin:0 0 14px; font-size:20px; }
+    p { margin:6px 0; }
+    .eyebrow { color:var(--blue); font-weight:700; text-transform:uppercase; font-size:12px; letter-spacing:1px; }
+    .muted { color:var(--muted); }
+    .status { color:var(--green); font-weight:700; white-space:nowrap; }
+    section { padding:30px 0; border-bottom:1px solid var(--line); }
+    .pipeline { display:grid; grid-template-columns:repeat(7,1fr); gap:8px; align-items:stretch; }
+    .step { background:white; border:1px solid var(--line); min-height:78px; padding:12px; }
+    .step b { display:block; font-size:13px; margin-bottom:8px; }
+    .step span { color:var(--muted); font-size:12px; }
+    .step.active { border-color:var(--blue); box-shadow:inset 0 3px 0 var(--blue); }
+    .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:18px; }
+    .panel { background:white; border:1px solid var(--line); padding:18px; }
+    .metric { display:flex; justify-content:space-between; border-bottom:1px solid var(--line); padding:7px 0; }
+    .metric:last-child { border-bottom:0; }
+    .candidate { border-left:4px solid var(--orange); padding:10px 12px; margin:10px 0; background:#fffaf4; }
+    .candidate b { display:block; }
+    .round { display:flex; gap:10px; align-items:center; border-bottom:1px solid var(--line); padding:10px 0; }
+    .round:last-child { border-bottom:0; }
+    .round strong { color:var(--blue); min-width:64px; }
+    .visual-map { width:100%; display:block; margin-top:14px; border:1px solid var(--line); background:#f6f8fb; }
+    .loader { display:flex; gap:10px; align-items:center; margin-top:14px; }
+    .loader input { max-width:100%; }
+    code { background:#eef2f6; padding:2px 5px; }
+    @media (max-width:760px) { header { display:block; } .status { display:block; margin-top:12px; } .pipeline { grid-template-columns:repeat(2,1fr); } .grid { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <div><div class="eyebrow">paper-harness / offline demo</div><h1>Reliable multimodal evaluation</h1><p class="muted">A supervised research loop with evidence, adversarial review and visual planning.</p></div>
+    <div class="status">FINAL REVIEW</div>
+  </header>
+
+  <section><h2>Research pipeline</h2><div class="pipeline">
+    <div class="step"><b>01 Literature</b><span>2 imported source records</span></div>
+    <div class="step"><b>02 Generate</b><span>3 competing directions</span></div>
+    <div class="step active"><b>03 Critique</b><span>3 adversarial rounds</span></div>
+    <div class="step"><b>04 Experiment</b><span>baseline + metrics</span></div>
+    <div class="step"><b>05 Evidence</b><span>human approval gate</span></div>
+    <div class="step"><b>06 Draft</b><span>provenance-aware text</span></div>
+    <div class="step"><b>07 Review</b><span>text + visual checks</span></div>
+  </div></section>
+
+  <section class="grid"><div class="panel"><h2>Evidence trace</h2>
+    <div class="metric"><span>Literature records</span><b>2</b></div><div class="metric"><span>Innovation candidates</span><b>3</b></div><div class="metric"><span>Adversarial rounds</span><b>3</b></div><div class="metric"><span>Network required</span><b>No</b></div>
+  </div><div class="panel"><h2>STEM visual strategy</h2><p><b>Modular composition</b></p><p class="muted">Elements are planned independently before composition.</p><p><code>background</code> → <code>subject</code> → <code>annotation</code></p><p class="muted">Supervision: scale, alignment, provenance, claim consistency.</p><img class="visual-map" src="stem_pipeline.svg" alt="STEM modular visual workflow">
+  </div></section>
+
+  <section><h2>Competing innovation directions</h2><div class="grid"><div>
+    <div class="candidate"><b>Method intervention</b><span>Change the method while holding evaluation fixed.</span></div>
+    <div class="candidate"><b>Data intervention</b><span>Change the data or representation bottleneck.</span></div>
+    <div class="candidate"><b>Evaluation intervention</b><span>Expose failure cases hidden by aggregate metrics.</span></div>
+  </div><div class="panel"><h2>Self-adversarial loop</h2>
+    <div class="round"><strong>Round 1</strong><span>Critic checks falsifiability and baseline.</span></div><div class="round"><strong>Round 2</strong><span>Generator revises failure modes.</span></div><div class="round"><strong>Round 3</strong><span>Winner is ranked, not automatically accepted.</span></div>
+  </div></div></section>
+
+  <section><p class="muted">This is an offline, deterministic demo. Real providers, experiments and image generation require explicit configuration and human approval.</p><div class="loader"><label for="run-files">Load a run directory</label><input id="run-files" type="file" webkitdirectory multiple></div><p id="load-status" class="muted"></p></section>
+</main>
+<script>
+  const input = document.getElementById('run-files');
+  const status = document.getElementById('load-status');
+  input.addEventListener('change', async () => {
+    const files = [...input.files].filter(file => file.name.endsWith('.json'));
+    const artifacts = [];
+    for (const file of files) {
+      try { const value = JSON.parse(await file.text()); if (value.kind && value.payload) artifacts.push(value); } catch (_) {}
+    }
+    const count = kind => artifacts.filter(item => item.kind === kind).length;
+    const records = artifacts.find(item => item.kind === 'literature_search');
+    const candidates = artifacts.find(item => item.kind === 'innovation_candidates');
+    document.querySelectorAll('.metric b')[0].textContent = records ? records.payload.records.length : count('literature_search');
+    document.querySelectorAll('.metric b')[1].textContent = candidates ? candidates.payload.candidates.length : count('innovation_candidates');
+    const search = artifacts.find(item => item.kind === 'adversarial_search');
+    document.querySelectorAll('.metric b')[2].textContent = search ? search.payload.rounds.length : count('adversarial_search');
+    status.textContent = artifacts.length ? `Loaded ${artifacts.length} artifacts from the selected run.` : 'No artifact JSON files found in that directory.';
+  });
+</script>
+</body>
+</html>

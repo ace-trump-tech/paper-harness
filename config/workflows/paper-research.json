@@ -1,0 +1,14 @@
+{
+  "name": "paper-research",
+  "stages": [
+    {"id": "brief", "agent": "human", "requires_approval": false},
+    {"id": "literature", "agent": "literature-scout", "requires_approval": false},
+    {"id": "hypothesis", "agent": "innovation-generator", "requires_approval": false},
+    {"id": "adversarial_review", "agent": "adversarial-critic", "requires_approval": true},
+    {"id": "experiment", "agent": "experiment-designer", "requires_approval": true},
+    {"id": "evidence_review", "agent": "evidence-synthesizer", "requires_approval": true},
+    {"id": "draft", "agent": ["visual-planner", "visual-composer", "draft-writer"], "requires_approval": true},
+    {"id": "final_review", "agent": ["claim-auditor", "similarity-checker", "authorship-editor", "visual-critic", "composition-supervisor"], "requires_approval": true}
+  ],
+  "max_adversarial_rounds": 3
+}

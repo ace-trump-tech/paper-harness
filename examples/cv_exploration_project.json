@@ -1,0 +1,18 @@
+{
+  "title": "CV A+B+C exploration",
+  "edition": "cv_exploration",
+  "domain": "stem",
+  "objective": "improve robust object detection under distribution shift",
+  "settings": {
+    "online": false,
+    "require_human_approval": true,
+    "adversarial_rounds": 3,
+    "gpu_devices": ["cuda:0", "cuda:1"],
+    "innovation_components": [
+      {"id": "A", "description": "feature backbone change"},
+      {"id": "B", "description": "uncertainty-aware loss"},
+      {"id": "C", "description": "shift-aware augmentation"}
+    ],
+    "cv_metrics": ["mAP@50:95", "F1", "latency_ms"]
+  }
+}

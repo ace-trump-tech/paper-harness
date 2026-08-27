@@ -1,0 +1,6 @@
+{
+  "name": "undergraduate-thesis",
+  "audience": "undergraduate beginner",
+  "focus": ["survey-first", "teacher-provided-topic", "bounded-experiment", "similarity-and-disclosure-review"],
+  "human_approval_before": ["adversarial_review", "experiment", "evidence_review", "draft", "final_review"]
+}

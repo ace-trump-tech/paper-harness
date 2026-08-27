@@ -1,0 +1,28 @@
+{
+  "agents": [
+    {"id": "literature-scout", "role": "build provenance-aware literature search plans and source records"},
+    {"id": "innovation-generator", "role": "generate diverse, falsifiable innovation candidates"},
+    {"id": "adversarial-critic", "role": "attack novelty, evidence and feasibility claims"},
+    {"id": "experiment-designer", "role": "design reproducible experiments or domain studies"},
+    {"id": "evidence-synthesizer", "role": "merge evidence and keep human approval gates"},
+    {"id": "draft-writer", "role": "write provenance-aware working drafts"},
+    {"id": "similarity-checker", "role": "screen local text overlap and request source review"},
+    {"id": "authorship-editor", "role": "improve author contribution, clarity and disclosure"},
+    {"id": "claim-auditor", "role": "verify draft claims against source artifacts"},
+    {"id": "visual-planner", "role": "select direct or modular visual workflow by domain"},
+    {"id": "visual-composer", "role": "turn visual plans into auditable asset slots and exports"},
+    {"id": "visual-critic", "role": "attack unsupported visual claims and provenance gaps"},
+    {"id": "composition-supervisor", "role": "supervise element composition and human review"}
+    ,{"id": "knowledge-base", "role": "persist local bounded chunks and document metadata"}
+    ,{"id": "undergraduate-guide", "role": "turn a teacher-provided topic into a survey-first thesis plan"}
+    ,{"id": "cv-combination-planner", "role": "enumerate A+B+C CV innovation combinations"}
+    ,{"id": "gpu-subagent[device]", "role": "prepare one auditable CV experiment slot per configured GPU"}
+    ,{"id": "evaluation-subagent", "role": "compare CV metrics and propose controlled next-round changes"}
+    ,{"id": "composition-agent", "role": "compose a provenance-aware CV draft and claim review"}
+  ],
+  "policy": {
+    "max_rounds": 3,
+    "require_human_approval_before_execution": true,
+    "allow_network_by_default": false
+  }
+}

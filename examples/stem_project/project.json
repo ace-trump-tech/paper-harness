@@ -1,0 +1,7 @@
+{
+  "title": "Robust multimodal evaluation",
+  "edition": "undergraduate",
+  "domain": "stem",
+  "objective": "improve reliable evaluation of a multimodal model",
+  "settings": {"adversarial_rounds": 3, "online": false}
+}

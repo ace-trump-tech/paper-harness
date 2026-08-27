@@ -1,0 +1,31 @@
+{
+  "title": "Reliable multimodal evaluation",
+  "domain": "stem",
+  "objective": "improve the reliability of multimodal model evaluation",
+  "settings": {
+    "online": false,
+    "require_human_approval": false,
+    "execute_toy_experiment": true,
+    "adversarial_rounds": 3,
+    "sources": [
+      {
+        "title": "A benchmark for robust multimodal evaluation",
+        "url": "https://example.org/paper/robust-multimodal-evaluation",
+        "authors": ["Demo Author"],
+        "year": 2024,
+        "abstract": "A benchmark studies distribution shift and failure-aware evaluation for multimodal systems.",
+        "source_kind": "demo",
+        "external_id": "demo-001"
+      },
+      {
+        "title": "Calibrated uncertainty for multimodal models",
+        "url": "https://example.org/paper/calibrated-uncertainty",
+        "authors": ["Demo Researcher"],
+        "year": 2025,
+        "abstract": "Calibration and uncertainty estimates are used to expose unreliable predictions.",
+        "source_kind": "demo",
+        "external_id": "demo-002"
+      }
+    ]
+  }
+}
